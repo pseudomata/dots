@@ -12,6 +12,7 @@
 ;; Display line numbers in every buffer
 ;; (global-display-line-numbers-mode 1)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)  ; only in programming text buffers
+(global-hl-line-mode 1)
 
 ;; The font to use
 (set-frame-font "JetBrains Mono 14" nil t)
@@ -47,6 +48,29 @@
 ;; Load the Modus Operandi theme
 ;; See https://github.com/protesilaos/modus-themes
 (straight-use-package 'modus-themes)  ; no longer needed in Emacs >= 28
-(load-theme 'modus-operandi t)
+(straight-use-package 'stimmung-themes)
+(load-theme 'stimmung-themes-light t)
 
 ;; TODO: come back and configure packages like vertico, marginalia, corfu, consult, prescient
+(use-package vertico
+  :straight t
+  :init
+  (vertico-mode)
+  (setq vertico-count 15)
+  (setq vertico-resize t))
+
+(use-package savehist
+  :straight t
+  :init
+  (savehist-mode))
+
+;; Enable rich annotations using the Marginalia package
+(use-package marginalia
+  :straight t
+  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+  ;; available in the *Completions* buffer, add it to the
+  ;; `completion-list-mode-map'.
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+  :init
+  (marginalia-mode))
