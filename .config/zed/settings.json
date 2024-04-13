@@ -7,20 +7,28 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "project_panel": {
-    "dock": "left"
-  },
-  "base_keymap": "VSCode",
-  "theme": "One Light",
-  "ui_font_size": 16,
-  "buffer_font_size": 13,
-  "language_overrides": {
-    "OCaml": {
-      "tab_size": 2
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "project_panel": {
+        "dock": "left"
+    },
+    "preferred_line_length": 100,
+    "base_keymap": "VSCode",
+    "theme": "One Light",
+    "buffer_font_family": "JetBrains Mono",
+    "ui_font_size": 16,
+    "buffer_font_size": 13,
+    "language_overrides": {
+        "OCaml": {
+            "tab_size": 2
+        },
+        "JSON": {
+            "tab_size": 4
+        },
+        "HTML": {
+            "preferred_line_length": 120
+        }
     }
-  }
 }
